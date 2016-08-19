@@ -1,0 +1,30 @@
+.helpWindowCenteredItem, .helpWindowParagraph {
+  margin     : 20px;
+  text-align : justify;
+}
+
+.helpWindowCenteredItem {
+  text-align : center;
+}
+
+.helpWindowLogo {
+  width     : 85%;
+  max-width : 100px;
+  height    : auto;
+}
+
+.helpWindowTitle {
+  font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size   : 18px;
+  color       : #333;
+}
+
+.helpWindowImage {
+  width     : 90%;
+  max-width : 480px;
+  height    : auto;
+}
+
+.helpWindowHighlight {
+  color : #399ed2;
+}
