@@ -116,7 +116,7 @@
           <p class="helpWindowCenteredItem">
             <img class="helpWindowImage" src="res/img/help-step-9.jpg" width="480" height="270" alt="Help step 9" />
           </p>
-          <p class="helpWindowParagraph" data-langTextName="t21">The only version of <span class="helpWindowHighlight">Safari</span> I've tested is the elder <span class="helpWindowHighlight">5.1.7 from 2012</span> on Windows</span>, and <span class="helpWindowHighlight">importing files is not possible since it doesn't supports the FileReader JavaScript class</span>. With <span class="helpWindowHighlight">Internet Explorer</span>... well... guess... it looks awful since it has <span class="helpWindowHighlight">problems rendering the canvas within a scroll frame</span> and it <span class="helpWindowHighlight">doesn't get the image data correctly</span>. So the most optimal browsers I suggest you to use are <span class="helpWindowHighlight">Google Chrome, Mozilla Firefox, Android and Opera Browser</span> (if you dare to seek how to export the image).</p>
+          <p class="helpWindowParagraph" data-langTextName="t21">The only version of <span class="helpWindowHighlight">Safari</span> I've tested is the elder <span class="helpWindowHighlight">5.1.7 from 2012 on Windows</span>, and <span class="helpWindowHighlight">importing files is not possible since it doesn't supports the FileReader JavaScript class</span>. With <span class="helpWindowHighlight">Internet Explorer</span>... well... guess... it looks awful since it has <span class="helpWindowHighlight">problems rendering the canvas within a scroll frame</span> and it <span class="helpWindowHighlight">doesn't get the image data correctly</span>. So the most optimal browsers I suggest you to use are <span class="helpWindowHighlight">Google Chrome, Mozilla Firefox, Android and Opera Browser</span> (if you dare to seek how to export the image).</p>
           <p class="helpWindowParagraph" data-langTextName="t22">Despite that, is not perfect, like everything, but if you're in <span class="helpWindowHighlight">Chrome</span> (and I hope you do!) you will get the best experience, trust me, this app is intended for digitizing <span class="helpWindowHighlight">simple drawings</span>, and you can remove imperfections using softwares like <span class="helpWindowHighlight">Adobe Photoshop&copy;</span> and using the <span class="helpWindowHighlight">eraser tool</span> (that's what I do). Then, you can <span class="helpWindowHighlight">paint it</span> and do whatever you want with it, if you have any question, don't hesitate to contact with me :)</p>
           <p class="helpWindowCenteredItem">
             <a href="http://www.edgaralexanderfr.com.ve/" target="_blank">www.edgaralexanderfr.com.ve</a>
@@ -128,6 +128,7 @@
     <!-- dropFileMessage -->
     <div id="dropFileMessage"></div>
     <!-- /dropFileMessage -->
+    <input id="fileInput" type="file" />
     <!-- appPanel -->
     <nav class="navbar navbar-default" id="appPanel">
       <div class="container-fluid">
@@ -145,7 +146,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-hdd"></span> <span data-langTextName="t23">File</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a id="openFileLink" href="#"><span class="glyphicon glyphicon-open-file"></span> <span data-langTextName="t24">Open</span></a></li>
-                <input id="fileInput" type="file" />
                 <li role="separator" class="divider"></li>
                 <li><a id="exportAsPngLink" href="#"><span class="glyphicon glyphicon-export"></span> <span data-langTextName="t25">Export as PNG</span></a></li>
                 <li><a id="exportAsJpegLink" href="#"><span class="glyphicon glyphicon-export"></span> <span data-langTextName="t26">Export as JPEG</span></a></li>
