@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/edgaralexanderfr/draw2png/issues"
   },
-  "homepage": "https://github.com/edgaralexanderfr/draw2png#readme"
+  "homepage": "https://github.com/edgaralexanderfr/draw2png#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "google-closure-compiler": "^20190415.0.0",
+    "gulp": "^4.0.2"
+  }
 }
