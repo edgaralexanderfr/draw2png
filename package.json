@@ -1,0 +1,19 @@
+{
+  "name": "draw2png",
+  "version": "v1.0.0",
+  "description": "Convert your hand-drawings into transparent images online!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgaralexanderfr/draw2png.git"
+  },
+  "author": "Edgar Alexander Franco <edgaralexanderfr@gmail.com> (http://www.edgaralexanderfr.com.ve/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edgaralexanderfr/draw2png/issues"
+  },
+  "homepage": "https://github.com/edgaralexanderfr/draw2png#readme"
+}
