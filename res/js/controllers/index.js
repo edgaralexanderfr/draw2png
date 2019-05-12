@@ -169,7 +169,7 @@ $(document).ready(function (event) {
       '    <meta http-equiv="X-UA-Compatible" content="ie=edge">'                                                      + 
       '    <meta name="theme-color" content="#399ed1">'                                                                + 
       '    <link rel="shortcut icon" href="res/img/favicon.ico" />'                                                    + 
-      '    <title>Draw2PNG v1.1.0</title>'                                                                             + 
+      '    <title>Draw2PNG v1.2.0</title>'                                                                             + 
       '</head>'                                                                                                        + 
       '<body style="background: #ccc; text-align: center;">'                                                                             + 
       '    <img width="' + canvas.width + '" height="' + canvas.height + '" src="' + link + '" alt="Preview image" />' + 
