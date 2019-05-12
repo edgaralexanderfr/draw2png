@@ -5,7 +5,9 @@ const browserSync = require('browser-sync').create();
 gulp.task('compile-core', (done) => {
     const outputFilePath = 'res/js/Draw2PNG/dist/Draw2PNG.min.js'; 
     const folders        = [
-        // Order matters:
+        /**
+         * Order matters and is the same we follow in _index.html_:
+         */
         'res/js/Draw2PNG/src/functions/*.js', 
         'res/js/Draw2PNG/src/classes/*.js', 
         'res/js/Draw2PNG/src/Color.js', 
