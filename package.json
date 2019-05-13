@@ -1,6 +1,6 @@
 {
   "name": "draw2png",
-  "version": "v1.2.0",
+  "version": "v1.2.1",
   "description": "Convert your hand-drawings into transparent images online!",
   "main": "index.js",
   "scripts": {

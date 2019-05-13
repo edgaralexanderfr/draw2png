@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## **v1.2.1** - May 12th 2019
+
+### Bug fixes:
+
+* Use the correct background colour for "Preview in new tab" window.
+
+### Improvements:
+
+* Use background image behind the displayed image in "Preview in new tab" window for checking transparency.
+
 ## **v1.2.0** - May 11th 2019
 
 ### New features:
