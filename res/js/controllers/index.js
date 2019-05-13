@@ -161,19 +161,21 @@ $(document).ready(function (event) {
     var link        = canvas.toDataURL();
     var win         = window.open();
     var html        = 
-      '<!DOCTYPE html>'                                                                                                + 
-      '<html lang="en">'                                                                                               + 
-      '<head>'                                                                                                         + 
-      '    <meta charset="UTF-8">'                                                                                     + 
-      '    <meta name="viewport" content="width=device-width, initial-scale=1.0">'                                     + 
-      '    <meta http-equiv="X-UA-Compatible" content="ie=edge">'                                                      + 
-      '    <meta name="theme-color" content="#399ed1">'                                                                + 
-      '    <link rel="shortcut icon" href="res/img/favicon.ico" />'                                                    + 
-      '    <title>Draw2PNG v1.2.0</title>'                                                                             + 
-      '</head>'                                                                                                        + 
-      '<body style="background: #ccc; text-align: center;">'                                                                             + 
-      '    <img width="' + canvas.width + '" height="' + canvas.height + '" src="' + link + '" alt="Preview image" />' + 
-      '</body>'                                                                                                        + 
+      '<!DOCTYPE html>'                                                                                                                                                                                               + 
+      '<html lang="en">'                                                                                                                                                                                              + 
+      '<head>'                                                                                                                                                                                                        + 
+      '    <meta charset="UTF-8">'                                                                                                                                                                                    + 
+      '    <meta name="viewport" content="width=device-width, initial-scale=1.0">'                                                                                                                                    + 
+      '    <meta http-equiv="X-UA-Compatible" content="ie=edge">'                                                                                                                                                     + 
+      '    <meta name="theme-color" content="#399ed1">'                                                                                                                                                               + 
+      '    <link rel="shortcut icon" href="res/img/favicon.ico" />'                                                                                                                                                   + 
+      '    <title>Draw2PNG v1.2.0</title>'                                                                                                                                                                            + 
+      '</head>'                                                                                                                                                                                                       + 
+      '<body style="background: #bbb;">'                                                                                                                                                                              + 
+      '    <div style="margin: 0px auto; width:  ' + canvas.width + 'px; height: ' + canvas.height + 'px; background-image : url(res/img/output-image-canvas-background.jpg); background-position : center center;">' + 
+      '        <img width="' + canvas.width + '" height="' + canvas.height + '" src="' + link + '" alt="Preview image" />'                                                                                            + 
+      '    <div>'                                                                                                                                                                                                     + 
+      '</body>'                                                                                                                                                                                                       + 
       '</html>';
     
     if (win) {
