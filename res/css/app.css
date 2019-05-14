@@ -1,1 +1,81 @@
-::selection {  background : #399ed1;  color      : white;}body {  margin : 0px;}#dropFileMessage {  position            : fixed;  top                 : 0;  left                : 0;  z-index             : 2000;  width               : 100%;  height              : 100%;  background-color    : #3aa1d5;  background-image    : url(../img/drop-file-icon.png);  background-repeat   : no-repeat;  background-position : center center;  opacity             : 0.5;  display             : none;}#appPanel {  margin-bottom : 0px;  visibility    : hidden;}#fileInput {  display : none;}.appPanelControllers {  text-align : center;}.appPanelControllersCol {  margin-top    : 6px;  margin-bottom : 6px;}label {  font-weight : normal;}#displayWindowsContainer {  visibility : hidden;}.displayWindowsContainerRow {  height : 100%;}.displayWindow {  padding    : 4px;  height     : 100%;   background : #ccc;  overflow   : scroll;}#originalImageWindow {  background : #ccc;}#originalImageCanvas {  cursor : url(../img/eyedropper.png), url(../img/eyedropper.gif), url(../img/eyedropper.cur), crosshair;}#outputImageCanvas {  background-image    : url(../img/output-image-canvas-background.jpg);  background-position : center center;}#processedImageWindow {  background : #bbb;}canvas {  background : white;}
+::selection {
+  background : #399ed1;
+  color      : white;
+}
+
+body {
+  margin : 0px;
+}
+
+#dropFileMessage {
+  position            : fixed;
+  top                 : 0;
+  left                : 0;
+  z-index             : 2000;
+  width               : 100%;
+  height              : 100%;
+  background-color    : #3aa1d5;
+  background-image    : url(../img/drop-file-icon.png);
+  background-repeat   : no-repeat;
+  background-position : center center;
+  opacity             : 0.5;
+  display             : none;
+}
+
+#appPanel {
+  margin-bottom : 0px;
+  visibility    : hidden;
+}
+
+#fileInput {
+  display : none;
+}
+
+.appPanelControllers {
+  text-align : center;
+}
+
+.appPanelControllersCol {
+  margin-top    : 6px;
+  margin-bottom : 6px;
+}
+
+label {
+  font-weight : normal;
+}
+
+#displayWindowsContainer {
+  visibility : hidden;
+}
+
+.displayWindowsContainerRow {
+  height : 100%;
+}
+
+.displayWindow {
+  padding    : 4px;
+  height     : 100%; 
+  background : #ccc;
+  overflow   : scroll;
+}
+
+#originalImageWindow {
+  background : #ccc;
+}
+
+#originalImageCanvas {
+  cursor : url(../img/eyedropper.png), url(../img/eyedropper.gif), url(../img/eyedropper.cur), crosshair;
+}
+
+#outputImageCanvas {
+  background-image    : url(../img/output-image-canvas-background.jpg);
+  background-position : center center;
+}
+
+#processedImageWindow {
+  background : #bbb;
+}
+
+canvas {
+  background : white;
+}
