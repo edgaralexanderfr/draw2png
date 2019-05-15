@@ -171,7 +171,7 @@ $(document).ready(function (event) {
       '    <link rel="shortcut icon" href="res/img/favicon.ico" />'                                                                                                                                                   + 
       '    <title>Draw2PNG v1.2.1</title>'                                                                                                                                                                            + 
       '</head>'                                                                                                                                                                                                       + 
-      '<body style="background: #bbb;">'                                                                                                                                                                              + 
+      '<body style="margin: 4px; background: #bbb;">'                                                                                                                                                                              + 
       '    <div style="margin: 0px auto; width:  ' + canvas.width + 'px; height: ' + canvas.height + 'px; background-image : url(res/img/output-image-canvas-background.jpg); background-position : center center;">' + 
       '        <img width="' + canvas.width + '" height="' + canvas.height + '" src="' + link + '" alt="Preview image" />'                                                                                            + 
       '    <div>'                                                                                                                                                                                                     + 
@@ -192,26 +192,26 @@ $(document).ready(function (event) {
       return;
     }
     
-    var zoomSign = (zoomIn) ? 1 : -1 ;
-    
     if (mouseOverOriginalImageWindow) {
-      filter.getOriginalPixmap().setZoom(
-        filter.getOriginalPixmap().getZoom() + (filter.getOriginalPixmap().getZoomDelta() * zoomSign)
-      );
+      zoomPixmap(filter.getOriginalPixmap(), zoomIn);
     } else 
     if (mouseOverProcessedImageWindow) {
-      filter.getOutputPixmap().setZoom(
-        filter.getOutputPixmap().getZoom() + (filter.getOutputPixmap().getZoomDelta() * zoomSign)
-      );
+      zoomPixmap(filter.getOutputPixmap(), zoomIn);
     } else {
-      filter.getOriginalPixmap().setZoom(
-        filter.getOriginalPixmap().getZoom() + (filter.getOriginalPixmap().getZoomDelta() * zoomSign)
-      );
-      
-      filter.getOutputPixmap().setZoom(
-        filter.getOutputPixmap().getZoom() + (filter.getOutputPixmap().getZoomDelta() * zoomSign)
-      );
+      zoomPixmap(filter.getOriginalPixmap(), zoomIn);
+      zoomPixmap(filter.getOutputPixmap(), zoomIn);
     }
+  }
+
+  /**
+   * Zooms in/out the provided Pixmap.
+   */
+  function zoomPixmap (pixmap, zoomIn) {
+    var zoomSign = (zoomIn) ? 1 : -1 ;
+    
+    pixmap.setZoom(
+      pixmap.getZoom() + (pixmap.getZoomDelta() * zoomSign)
+    );
   }
   
   /**
@@ -414,6 +414,93 @@ $(document).ready(function (event) {
     event.preventDefault();
     language.setName('es');
     language.translateDOM(true);
+  });
+
+  /**
+   * Zooms in the original/processed images windows when user clicks on the 'Zoom in all' link.
+   */
+  $('#zoomInAllLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOriginalPixmap(), true);
+    zoomPixmap(filter.getOutputPixmap(), true);
+  });
+
+  /**
+   * Zooms out the original/processed images windows when user clicks on the 'Zoom out all' link.
+   */
+  $('#zoomOutAllLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOriginalPixmap(), false);
+    zoomPixmap(filter.getOutputPixmap(), false);
+  });
+
+  /**
+   * Resets the zoom of the original/processed images windows when user clicks on the
+   * 'Reset all' link.
+   */
+  $('#resetAllZoomLink').click(function (event) {
+    event.preventDefault();
+    
+    filter.getOriginalPixmap().setZoom(1.0);
+    filter.getOutputPixmap().setZoom(1.0);
+  });
+
+  /**
+   * Zooms in the original image window when user clicks on the 'Zoom in original' link.
+   */
+  $('#zoomInOriginalLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOriginalPixmap(), true);
+  });
+
+  /**
+   * Zooms out the original image window when user clicks on the 'Zoom out original' link.
+   */
+  $('#zoomOutOriginalLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOriginalPixmap(), false);
+  });
+
+  /**
+   * Resets the zoom of the original image window when user clicks on the
+   * 'Reset original' link.
+   */
+  $('#resetOriginalZoomLink').click(function (event) {
+    event.preventDefault();
+    
+    filter.getOriginalPixmap().setZoom(1.0);
+  });
+
+  /**
+   * Zooms in the processed image window when user clicks on the 'Zoom in result' link.
+   */
+  $('#zoomInResultLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOutputPixmap(), true);
+  });
+
+  /**
+   * Zooms out the processed image window when user clicks on the 'Zoom out result' link.
+   */
+  $('#zoomOutResultLink').click(function (event) {
+    event.preventDefault();
+    
+    zoomPixmap(filter.getOutputPixmap(), false);
+  });
+
+  /**
+   * Resets the zoom of the processed image window when user clicks on the
+   * 'Reset result' link.
+   */
+  $('#resetResultZoomLink').click(function (event) {
+    event.preventDefault();
+    
+    filter.getOutputPixmap().setZoom(1.0);
   });
   
   /**

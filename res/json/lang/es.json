@@ -51,5 +51,17 @@
   "t50" : "Guardar JPEG como:", 
   "t51" : "Guardar PNG como:", 
   "t52" : " trazado", 
-  "t53" : "Nuevo trazo"
+  "t53" : "Nuevo trazo", 
+  "t54" : "Vista", 
+  "t55" : "Acercar todo", 
+  "t56" : "Alejar todo", 
+  "t57" : "Reiniciar todo", 
+  "t58" : "Z + RUEDA/I", 
+  "t59" : "Z + RUEDA/O", 
+  "t60" : "Acercar original", 
+  "t61" : "Alejar original", 
+  "t62" : "Reiniciar original", 
+  "t63" : "Acercar resultado", 
+  "t64" : "Alejar resultado", 
+  "t65" : "Reiniciar resultado"
 }
