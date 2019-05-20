@@ -1,6 +1,6 @@
 [![Draw2PNG](https://edgaralexanderfr.github.io/draw2png/res/img/rounded-logo.png?)](https://edgaralexanderfr.github.io/draw2png/)
 
-# Draw2PNG v1.2.1
+# Draw2PNG v1.3.0
 
 ## CONTRIBUTING
 

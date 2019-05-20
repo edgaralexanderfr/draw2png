@@ -1,6 +1,6 @@
 {
-  "t1" : "Draw2PNG v1.2.1", 
-  "t2" : "Draw2PNG v1.2.1", 
+  "t1" : "Draw2PNG v1.3.0", 
+  "t2" : "Draw2PNG v1.3.0", 
   "t3" : "<span class=\"helpWindowHighlight\">Draw2PNG</span> es una herramienta que puedes utilizar para <span class=\"helpWindowHighlight\">extraer el contorno de tus dibujos escaneados</span>, mejorarlos, cambiar su color ¡y más!", 
   "t4" : "Esta aplicación estaba originalmente destinada a digitalizar sprites para videojuegos dibujados a mano, como es de saber las <span class=\"helpWindowHighlight\">tabletas para dibujar pueden ser algo costosas</span> para algunas personas (como yo), así que usualmente escaneaba el dibujo, y luego lo usaba como capa guía en softwares como <span class=\"helpWindowHighlight\">Adobe Photoshop©</span> para así crear el dibujo <span class=\"helpWindowHighlight\">transparente</span> definitivo contorneando con el ratón, sin embargo, era una tarea un tanto trabajosa.", 
   "t5" : "¿Suena interesante, no es así...? así que, ¡empecemos entonces!", 

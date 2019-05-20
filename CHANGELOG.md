@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## **v1.3.0** - May 19th 2019
+
+### New features:
+
+* Added InstantProcessing functionality (enabled by default).
+* Added Image tab for InstantProcessing settings.
+* Added View tab for zoom options.
+* Added CHANGELOG link in manual.
+
+### Bug fixes:
+
+* Fixed "Preview in new tab" margin according to preview window.
+* Fixed Help > "Manual" missing tooltip. 
+* Fixed newline trim in some core/css files.
+* Removed 'v' SemVer convention from _package.json_.
+
 ## **v1.2.1** - May 12th 2019
 
 ### Bug fixes:
