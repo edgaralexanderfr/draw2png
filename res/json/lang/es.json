@@ -63,5 +63,8 @@
   "t62" : "Reiniciar original", 
   "t63" : "Acercar resultado", 
   "t64" : "Alejar resultado", 
-  "t65" : "Reiniciar resultado"
+  "t65" : "Reiniciar resultado", 
+  "t66" : "Imagen", 
+  "t67" : "Activar procesamiento instantáneo", 
+  "t68" : "Desactivar procesamiento instantáneo"
 }

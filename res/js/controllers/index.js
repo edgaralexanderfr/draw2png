@@ -2,30 +2,37 @@
  * Depends on jQuery 1.11.3, openLink, downloadFile, Draw2PNG.Color, Draw2PNG.ColorToleranceFilter
  */
 $(document).ready(function (event) {
-  var ZOOM_KEY_CODE                    = 90;
-  var ZOOM_IN_KEY_CODE                 = 73;
-  var ZOOM_OUT_KEY_CODE                = 79;
-  var RESET_ZOOM_KEY_CODE              = 82;
-  var TOGGLE_HELP_WINDOW_KEY_CODE      = 72;
-  var COLOR_TOLERANCE_SLIDER_LOCK_TIME = 30;
-  var EXPORT_AS_PNG                    = 0;
-  var EXPORT_AS_JPEG                   = 1;
-  var LANGUAGE_JSON_LIST               = [
+  var ZOOM_KEY_CODE                      = 90; // Z
+  var ZOOM_IN_KEY_CODE                   = 73; // I
+  var ZOOM_OUT_KEY_CODE                  = 79; // O
+  var RESET_ZOOM_KEY_CODE                = 82; // R
+  var TOGGLE_HELP_WINDOW_KEY_CODE        = 72; // H
+  var COLOR_TOLERANCE_SLIDER_LOCK_TIME   = 30;
+  var INSTANT_PROCESSING_MIN_LOCK_TIME   = 500;
+  var INSTANT_PROCESSING_MAX_LOCK_TIME   = 3000;
+  var INSTANT_PROCESSING_COOKIE_LIFETIME = 3600 * 24 * 365 * 1000;
+  var INSTANT_PROCESSING_COOKIE_NAME     = 'instantProcessing';
+  var EXPORT_AS_PNG                      = 0;
+  var EXPORT_AS_JPEG                     = 1;
+  var LANGUAGE_JSON_LIST                 = [
     {
       name : 'es', 
       url  : 'res/json/lang/es.json'
     }
   ];
   
-  var originalImageCanvas              = document.getElementById('originalImageCanvas');
-  var outputImageCanvas                = document.getElementById('outputImageCanvas');
-  var filter                           = new Draw2PNG.ColorToleranceFilter(originalImageCanvas, outputImageCanvas);
-  var language                         = new Language;
-  var zoomKeyPressed                   = false;
-  var colorToleranceSliderLocked       = false;
-  var mouseOverOriginalImageWindow     = false;
-  var mouseOverProcessedImageWindow    = false;
-  var brightnessPercentage             = 0;
+  var originalImageCanvas                = document.getElementById('originalImageCanvas');
+  var outputImageCanvas                  = document.getElementById('outputImageCanvas');
+  var filter                             = new Draw2PNG.ColorToleranceFilter(originalImageCanvas, outputImageCanvas);
+  var language                           = new Language;
+  var zoomKeyPressed                     = false;
+  var colorToleranceSliderLocked         = false;
+  var instantProcessing                  = true;
+  var instantProcessingLocked            = false;
+  var mouseOverOriginalImageWindow       = false;
+  var mouseOverProcessedImageWindow      = false;
+  var brightnessPercentage               = 0;
+  var processingTime                     = 500;
   filter.getOriginalPixmap().setImageFromURL('res/img/original-image-placeholder.jpg');
   filter.getOutputPixmap().setImageFromURL('res/img/output-image-placeholder.png');
   
@@ -144,12 +151,16 @@ $(document).ready(function (event) {
    * Set all the menubar's properties and then applies the filter.
    */
   function process () {
+    var startTime = Date.now();
+    
     filter.setMaxToleratedColor(new Draw2PNG.Color().setRGBAfObject($('#colorTolerancePicker').data('colorpicker').color.toRGB()));
     filter.setOutputColor(new Draw2PNG.Color().setRGBAfObject($('#outputColorPicker').data('colorpicker').color.toRGB()));
     filter.setBackgroundColor(new Draw2PNG.Color().setRGBAfObject($('#backgroundColorPicker').data('colorpicker').color.toRGB()));
     filter.allowOutputColor($('#outputColorCheckbox').is(':checked'));
     filter.setBrightnessPercentage(brightnessPercentage);
     filter.apply();
+    
+    processingTime = Date.now() - startTime;
   }
   
   /**
@@ -269,6 +280,27 @@ $(document).ready(function (event) {
     input.get(0).onkeyup = function (event) {
       event.stopPropagation();
     }
+  }
+
+  /**
+   * Checks the instant processing state for calling and locking the auto-processing function.
+   */
+  function instantProcess () {
+    if (!instantProcessing || instantProcessingLocked) {
+      return;
+    }
+
+    instantProcessingLocked = true;
+    process();
+    
+    var lockTime = Math.min(
+      Math.max(processingTime, INSTANT_PROCESSING_MIN_LOCK_TIME), 
+      INSTANT_PROCESSING_MAX_LOCK_TIME
+    );
+
+    setTimeout(function () {
+      instantProcessingLocked = false;
+    }, lockTime);
   }
   
   /**
@@ -417,6 +449,24 @@ $(document).ready(function (event) {
   });
 
   /**
+   * Enables instant processing when user clicks on the 'Enable instant processing' link.
+   */
+  $('#enableInstantProcessingLink').click(function (event) {
+    event.preventDefault();
+    instantProcessing = true;
+    setCookie(INSTANT_PROCESSING_COOKIE_NAME, 'true', INSTANT_PROCESSING_COOKIE_LIFETIME);
+  });
+
+  /**
+   * Disables instant processing when user clicks on the 'Disables instant processing' link.
+   */
+  $('#disableInstantProcessingLink').click(function (event) {
+    event.preventDefault();
+    instantProcessing = false;
+    setCookie(INSTANT_PROCESSING_COOKIE_NAME, 'false', INSTANT_PROCESSING_COOKIE_LIFETIME);
+  });
+
+  /**
    * Zooms in the original/processed images windows when user clicks on the 'Zoom in all' link.
    */
   $('#zoomInAllLink').click(function (event) {
@@ -532,6 +582,8 @@ $(document).ready(function (event) {
     var percentage             = Math.round((((color.r + color.g + color.b) / 3) * 100) / 255);
     $('#colorToleranceSlider').slider('setValue', percentage);
     
+    instantProcess();
+    
     setTimeout(function () {
       colorToleranceSliderLocked = false;
     }, COLOR_TOLERANCE_SLIDER_LOCK_TIME);
@@ -550,12 +602,34 @@ $(document).ready(function (event) {
     
     $('#colorTolerancePicker').colorpicker('setValue', '#' + grayLevelHex + grayLevelHex + grayLevelHex);
   });
+
+  /**
+   * Calls the instant processing function when user toggles the output colour.
+   */
+  $('#outputColorCheckbox').change(function (event) {
+    instantProcess();
+  });
+
+  /**
+   * Calls the instant processing function when user changes the output colour.
+   */
+  $('#outputColorPicker').on('changeColor', function (event) {
+    instantProcess();
+  });
+  
+  /**
+   * Calls the instant processing function when user changes the background colour.
+   */
+  $('#backgroundColorPicker').on('changeColor', function (event) {
+    instantProcess();
+  });
   
   /**
    * Updates the brightness percentage to set when processing the image when user slides the brightness slider.
    */
   $('#brightnessSlider').on('slide', function (event) {
     brightnessPercentage = event.value;
+    instantProcess();
   });
   
   /**
@@ -657,4 +731,10 @@ $(document).ready(function (event) {
   language.loadDOMTextAsLanguage('en');
   language.setName('en');
   language.saveCookie(true);
+
+  if (getCookie(INSTANT_PROCESSING_COOKIE_NAME) == '') {
+    setCookie(INSTANT_PROCESSING_COOKIE_NAME, 'true', INSTANT_PROCESSING_COOKIE_LIFETIME);
+  }
+
+  instantProcessing = (getCookie(INSTANT_PROCESSING_COOKIE_NAME) == 'true');
 });
