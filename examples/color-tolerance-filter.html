@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Tolerance Filter</title>
+</head>
+<body>
+    <script type="text/javascript" src="../res/js/Draw2PNG/dist/Draw2PNG.min.js"></script>
+    <script type="text/javascript">
+        /**
+         * Callback function to trigger when drawing image has
+         * been loaded:
+         */
+        function onLoadDrawingImage (e) {
+            // Create a Pixmap for the original drawing image:
+            var drawingPixmap = new Draw2PNG.Pixmap();
+            drawingPixmap.setImage(drawingImage);
+            
+            // Create a Pixmap for the result processed image:
+            var resultPixmap = new Draw2PNG.Pixmap();
+            resultPixmap.clear(drawingImage.width, drawingImage.height);
+            resultPixmap.setZoom(1.0);
+            
+            // Create the color tolerance filter with both original and 
+            // result:
+            var colorToleranceFilter = new Draw2PNG.ColorToleranceFilter(
+                drawingPixmap, 
+                resultPixmap
+            );
+
+            // Adjust filter parameters and colours:
+            colorToleranceFilter.setMaxToleratedColor(
+                new Draw2PNG.Color(196, 196, 196)
+            );
+
+            colorToleranceFilter.setOutputColor(
+                new Draw2PNG.Color(255, 255, 255, 0.7)
+            );
+
+            colorToleranceFilter.setBackgroundColor(
+                new Draw2PNG.Color(31, 170, 214, 0.7)
+            );
+
+            // Apply filter:
+            colorToleranceFilter.apply();
+            colorToleranceFilter.dispose();
+            
+            // Create result image:
+            var resultCanvas   = resultPixmap.getCanvas();
+            var resultImage    = new Image();
+            resultImage.width  = resultCanvas.width;
+            resultImage.height = resultCanvas.height;
+            resultImage.alt    = 'Result image';
+            resultImage.src    = resultCanvas.toDataURL();
+
+            // Add both images (original and processed) to body:
+            document.body.appendChild(drawingImage);
+            document.body.appendChild(resultImage);
+        }
+
+        // Create and load original image with scanned drawing:
+        var drawingImage    = new Image();
+        drawingImage.onload = onLoadDrawingImage;
+        drawingImage.width  = 128;
+        drawingImage.height = 128;
+        drawingImage.alt    = 'Drawing image';
+        drawingImage.src    = '../res/img/original-image-placeholder.jpg';
+    </script>
+</body>
+</html>
