@@ -34,3 +34,14 @@ gulp.task('browser-sync', (done) => {
         }
     });
 });
+
+gulp.task('jsdoc', (done) => {
+    cp.execSync(
+        'rm -rf docs && ' + 
+        './node_modules/.bin/jsdoc ' + 
+        'res/js/Draw2PNG/src -r ' + 
+        '-d docs ' + 
+        '-R README.md'
+    );
+    done();
+});

@@ -19,6 +19,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.5",
     "google-closure-compiler": "^20190415.0.0",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "jsdoc": "^3.6.2"
   }
 }
