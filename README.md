@@ -1,6 +1,8 @@
 [![Draw2PNG](https://edgaralexanderfr.github.io/draw2png/res/img/rounded-logo.png?)](https://edgaralexanderfr.github.io/draw2png/)
 
-# Draw2PNG v1.3.0
+# Draw2PNG
+
+[![View last release](https://img.shields.io/badge/version-v1.3.0-informational.svg)](https://github.com/edgaralexanderfr/draw2png/releases/latest)
 
 ## CONTRIBUTING
 
