@@ -3,6 +3,7 @@
 # Draw2PNG
 
 [![View last release](https://img.shields.io/badge/version-v1.3.0-informational.svg)](https://github.com/edgaralexanderfr/draw2png/releases/latest)
+[![Donate](https://img.shields.io/badge/donate-ff69b4.svg)](http://www.edgaralexanderfr.com.ve/donate)
 
 ## CONTRIBUTING
 
