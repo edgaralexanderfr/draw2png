@@ -6,8 +6,6 @@
 [![License](https://img.shields.io/badge/license-mit-green.svg)](https://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-ff69b4.svg)](http://www.edgaralexanderfr.com.ve/donate)
 
-https://opensource.org/licenses/MIT
-
 ## CONTRIBUTING
 
 1. Fork the repository.
