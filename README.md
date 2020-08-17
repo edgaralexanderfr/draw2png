@@ -72,7 +72,7 @@ The only version of Safari I've tested is the elder 5.1.7 from 2012 on Windows, 
 
 Despite that, is not perfect, like everything, but if you're in Chrome (and I hope you do!) you will get the best experience, trust me, this app is intended for digitizing simple drawings, and you can remove imperfections using softwares like Adobe Photoshop© and using the eraser tool (that's what I do). Then, you can paint it and do whatever you want with it, if you have any question, don't hesitate to contact with me :)
 
-www.edgaralexanderfr.com.ve
+edgaralexanderfr.com
 
 ## LICENSE
 
