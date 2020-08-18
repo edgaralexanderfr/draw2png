@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## **v1.3.1** - Aug 17th 2020
+
+### Improvements:
+
+* Updated author website URL from ~~www.edgaralexanderfr.com.ve~~ to edgaralexanderfr.com
+
 ## **v1.3.0** - May 19th 2019
 
 ### New features:
